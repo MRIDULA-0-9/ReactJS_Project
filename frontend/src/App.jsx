@@ -1,73 +1,30 @@
-import { useState } from "react";
-import GroupList from "./components/GroupList";
-import ChatBox from "./components/ChatBox";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-<BrowserRouter>
-<Routes>
-<Route path="/" element={<Login/>}/>
-<Route path="/login" element={<Login/>}/>
-<Route path="/register" element={<Register/>}/>
-<Route path="/dashboard" element={<Dashboard/>}/>
-</Routes>
-</BrowserRouter>
+function App() {
 
-function App(){
+  return (
 
-const [selectedGroup,setSelectedGroup] = useState(null);
-const [groupName,setGroupName] = useState("");
-const [members,setMembers] = useState([]);
-const [username,setUsername] = useState("");   // ✅ ADD THIS
+    <BrowserRouter>
 
-return(
-    
+      <Routes>
 
-<div className="app-container">
+        <Route path="/" element={<Login />} />
 
-<div className="sidebar">
+        <Route path="/login" element={<Login />} />
 
-<h2>Groups</h2>
+        <Route path="/register" element={<Register />} />
 
-<GroupList
-setSelectedGroup={setSelectedGroup}
-setGroupName={setGroupName}
-setMembers={setMembers}
-/>
+        <Route path="/dashboard" element={<Dashboard />} />
 
-</div>
+      </Routes>
 
+    </BrowserRouter>
 
-<div className="chat-area">
-
-<h2>This is {groupName} group</h2>
-
-<ChatBox
-groupId={selectedGroup}
-username={username}
-/>
-
-</div>
-
-
-<div className="members">
-
-<h3>Members</h3>
-
-{members.map((m,i)=>(
-<div key={i} className="member-item">
-{m}
-</div>
-))}
-
-</div>
-
-</div>
-
-)
+  );
 
 }
 
