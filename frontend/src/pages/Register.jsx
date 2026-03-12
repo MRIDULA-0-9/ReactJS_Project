@@ -14,7 +14,7 @@ const navigate = useNavigate();
 const registerUser = async () => {
 
 await axios.post(
-"http://localhost:5000/api/register",
+"https://group-chat-backend-h5lu.onrender.comv/api/register",
 {
 name,
 email,
