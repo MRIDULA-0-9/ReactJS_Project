@@ -15,7 +15,7 @@ const login = async () => {
 try{
 
 const res = await axios.post(
-"https://group-chat-backend-h5lu.onrender.com/api/login",
+"http://localhost:5000/api/groups/api/login",
 {
 email,
 password

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("https://group-chat-backend-h5lu.onrender.com");
+const socket = io("http://localhost:5000/api/groups");
 
 function ChatBox({ groupId }) {
 
@@ -16,7 +16,7 @@ useEffect(() => {
 if (!groupId) return;
 
 axios
-.get(`https://group-chat-backend-h5lu.onrender.com/api/messages/${groupId}`)
+.get(`http://localhost:5000/api/messages/${groupId}`)
 .then(res => {
 setMessages(res.data);
 });
@@ -54,7 +54,7 @@ text: msg
 try {
 
 await axios.post(
-`https://group-chat-backend-h5lu.onrender.com/api/groups/${groupId}/message`,
+`http://localhost:5000/api/groups/${groupId}/message`,
 messageData
 );
 
@@ -83,7 +83,7 @@ const formData = new FormData();
 formData.append("file", file);
 
 const res = await axios.post(
-"https://group-chat-backend-h5lu.onrender.com/api/upload",
+"http://localhost:5000/api/upload",
 formData
 );
 
@@ -98,7 +98,7 @@ image: imageName
 };
 
 await axios.post(
-`https://group-chat-backend-h5lu.onrender.com/api/groups/${groupId}/message`,
+`http://localhost:5000/api/groups/${groupId}/message`,
 messageData
 );
 
@@ -127,7 +127,7 @@ return (
 
 {m.image && (
 <img
-src={`https://group-chat-backend-h5lu.onrender.com/uploads/${m.image}`}
+src={`http://localhost:5000/uploads/${m.image}`}
 width="200"
 />
 )}
