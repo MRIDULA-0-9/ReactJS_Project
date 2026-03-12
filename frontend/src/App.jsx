@@ -2,6 +2,9 @@ import { useState } from "react";
 import GroupList from "./components/GroupList";
 import ChatBox from "./components/ChatBox";
 import "./App.css";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 <BrowserRouter>
@@ -21,6 +24,7 @@ const [members,setMembers] = useState([]);
 const [username,setUsername] = useState("");   // ✅ ADD THIS
 
 return(
+    
 
 <div className="app-container">
 
