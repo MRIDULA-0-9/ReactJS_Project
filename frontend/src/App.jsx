@@ -2,6 +2,16 @@ import { useState } from "react";
 import GroupList from "./components/GroupList";
 import ChatBox from "./components/ChatBox";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+<BrowserRouter>
+<Routes>
+<Route path="/" element={<Login/>}/>
+<Route path="/login" element={<Login/>}/>
+<Route path="/register" element={<Register/>}/>
+<Route path="/dashboard" element={<Dashboard/>}/>
+</Routes>
+</BrowserRouter>
 
 function App(){
 

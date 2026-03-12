@@ -9,7 +9,7 @@ const [member,setMember] = useState("");
 
 useEffect(()=>{
 
-axios.get("https://group-chat-backend-h5lu.onrender.comv/api/groups")
+axios.get("https://group-chat-backend-h5lu.onrender.com/api/groups")
 .then(res => setGroups(res.data));
 
 },[]);
@@ -18,7 +18,7 @@ axios.get("https://group-chat-backend-h5lu.onrender.comv/api/groups")
 const createGroup = async ()=>{
 
 const res = await axios.post(
-"https://group-chat-backend-h5lu.onrender.comv/api/groups",
+"https://group-chat-backend-h5lu.onrender.com/api/groups",
 {name:newGroup,admin:"User"}
 );
 
@@ -31,7 +31,7 @@ setNewGroup("");
 const addMember = async (id)=>{
 
 await axios.put(
-`https://group-chat-backend-h5lu.onrender.comv/api/groups/${id}/add-member`,
+`https://group-chat-backend-h5lu.onrender.com/api/groups/${id}/add-member`,
 {member,user:"User"}
 );
 
@@ -43,7 +43,7 @@ alert("Member Added");
 const removeMember = async (groupId,memberName)=>{
 
 await axios.put(
-`https://group-chat-backend-h5lu.onrender.comv/api/groups/${groupId}/remove-member`,
+`https://group-chat-backend-h5lu.onrender.com/api/groups/${groupId}/remove-member`,
 {
 member:memberName,
 user:"User"
